@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .cart {
+            transition: 300ms;
+
+        }
+        .active {
+            transform: translateX(0)!important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 主選單 -->
+        <nav class="flex p-5 bg-zinc-900">
+            <a href="/" class="hover:scale-125 duration-200 text-zinc-50 pl-10 ">Ch1yo's 購物網站</a> 
+
+            <a href="#" class="hover:scale-125 duration-200 text-zinc-50 ml-auto" @click="is_open = !is_open">購物車</a>
+        </nav>
+        <div class="py-20 font-bold text-center">
+            <h2 class="text-3xl lg:text-6xl">
+                這裡是練習用Vue.js編寫的購物網站，純粹前端的購物車
+            </h2>
+            <p class="text-2xl lg:text-5xl pt-5">左方還有簡易的天氣查詢(使用openweather api)</p>
+        </div>
+        <!-- 購物車 -->
+        <div id="shopping_cart"
+            :class="{active:is_open}"
+            class="rounded-l-xl border border-cyan-800 flex flex-wrap flex-col cart w-[400px] h-[600px] bg-zinc-300 right-0 top-[60px] fixed p-3 translate-x-full">
+            <!-- 購物車內容 -->
+            <div v-for="cart,idx in carts" class="py-2">
+                <h3>{{cart.title}}</h3>
+                <div>
+                    {{cart.price}} $
+                </div>
+                <a href="#" class="bg-blue-200 rounded-lg p-2" 
+                @click="removeItem(idx)">移除</a>
+            </div>
+            <!-- 清空購物車 -->
+            <a href="#" @click="clearCart()" v-if="carts.length != 0" class="hover:scale-110 absolute w-fit h-fit right-40 bottom-5 p-2 bg-red-600 rounded-lg text-white inline-block">清空購物車</a>
+            <a href="#" @click="cancel()" class="hover:scale-110 absolute w-fit h-fit right-5 bottom-5 p-2 bg-red-600 rounded-lg text-white inline-block">關閉購物車</a>
+            <div class="absolute w-fit h-fit left-5 bottom-5">
+                小計：{{total}} $
+            </div>
+        </div>
+
+        <!-- 卡片商品 -->
+        <div class="container flex flex-wrap mx-auto">
+            <div v-for="product,idx in products" class="lg:w-1/4 sm:w-1/2 w-full p-4">
+                <div class="bg-zinc-200 border border-zinc-700 rounded-lg overflow-hidden">
+                    <div class="aspect-video">
+                        <!-- {{product.image}} -->
+                        <img :src="product.image" alt="" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-3 space-y-4">
+                        <h3>{{product.title}}</h3>
+                        <div>{{product.price}}$</div>
+                        <a href="#" class="hover:scale-110 duration-200 px-5 py-2 rounded-lg bg-blue-400 inline-block" @click.prevent="storeToCart(product.id)" @click="open()">加入購物車</a>
+                        <!-- <a href="#" class="px-5 py-2 rounded-lg bg-blue-400 inline-block" @click="storeToCart(idx)">加入購物車</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 天氣 -->
+    <div id="weather" class="fixed inset-0 top-20 left-2 z-50 w-fit h-fit bg-slate-50 rounded-lg">
+        <select name="" id="" v-model="q" @change="getWeather()" class="bg-cyan-50 p-1 rounded-lg">
+            <option value="">--這裡可以看天氣哦--</option>
+            <option value="taipei">台北</option>
+            <option value="tokyo">東京</option>
+            <option value="bangkok">曼谷</option>
+            <option value="seoul">首爾</option>
+        </select>
+        <div v-if="weathers" class="space-y-2 p-2">
+            <h2>今日天氣 {{w.description}}</h2>
+            <img :src="`https://openweathermap.org/img/wn/${w.icon}@2x.png`" alt="">
+            <div>平均溫度:{{main.temp}}&deg;C</div>
+            <div>最高溫度:{{main.temp_max}}&deg;C</div>
+            <div>最低溫度:{{main.temp_min}}&deg;C</div>
+            <div>體感溫度:{{main.feels_like}}&deg;C</div>
+            <div>目前濕度:{{main.humidity}}%</div>
+            <a href="#" class="w-fit h-fit px-5 py-2
+             bg-red-600 rounded-lg text-white inline-block"
+                @click="close()">
+                關閉天氣
+            </a>
+        </div>
+    </div>
+    <!-- 返回 -->
+    <div class="fixed p-2 bottom-10 right-10 w-fit h-fit bg-slate-300 z-50 rounded-md hover:scale-125 hover:bg-slate-600 hover:text-white duration-200">
+        <a href="/portfolio" class="font-bold text-2xl goTop">
+            返回作品集
+        </a>
+    </div>
+    <footer class="py-20 bg-black text-white justify-between flex">
+        <div class="container flex flex-wrap mx-auto border-b p-8 relative">
+            <div class="w-1/3 flex flex-col space-y-8">
+                <div>
+                    60, 29th Street, San Francisco, CA 94110,
+                    <br>United States of America
+                </div>
+                <div>Phone :<a href="#"> (495) 989—20—11</a></div>
+                <div>E-mail :<a href="#">contact@wpthemego.com</a></div>
+            </div>
+
+            <div class="w-1/3 flex flex-wrap">
+                <div class="w-1/2">
+                    <ul class="space-y-8">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">The Policy</a></li>
+                        <li><a href="#">Warranty Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="w-1/2">
+                    <ul class="space-y-8">
+                        <li><a href="#">Recruitment</a></li>
+                        <li><a href="#">Promotion Information</a></li>
+                        <li><a href="#">Shopping Guide Online</a></li>
+                        <li><a href="#">Chain Stores System</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="w-1/3 flex flex-col space-y-8 sm:block hidden">
+                <div>
+                    Stay updated with the latest news and special sales. Let's your email address here!
+                </div>
+                <div>
+                    <form action="text">
+                        <input type="text" value="Enter your Email!">
+                        <button type="submit" value="submit"></button>
+                    </form>
+                </div>
+            </div>
+            <div class="absolute w-fit bottom-[-8px] left-1/2 -translate-x-1/2">
+                <div class="px-4 space-x-4  m-auto bg-black flex flex-row items-center ">
+                    <a href="#" class="text-xs"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-xs"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-xs"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="text-xs"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        Vue.createApp({
+            data(){
+                return{
+                    products: '',
+                    carts:[],
+                    is_open: false
+                }
+            },
+            created(){
+                const url = 'https://fakestoreapi.com/products';
+                fetch(url).then(res=>res.json()).then(data => {
+                    this.products = data;
+                    // console.log(data);
+                })
+            },
+            methods:{
+                storeToCart(pid){
+                    let pd = this.products.find(data => data.id === pid)
+                    // console.log(pd);
+                    this.carts.push(pd);
+
+                },
+                clearCart(){
+                    if(confirm('確認清空購物車嗎？')){
+                        
+                        this.carts.length = 0;
+                        
+                    }
+                },
+                removeItem(idx){
+                    if(confirm('確認移除商品嗎？')){
+                        this.carts.splice(idx,1);
+                        
+                    }
+                },
+                cancel(){
+                    this.is_open=false;
+                },
+                open(){
+                    this.is_open=true;
+                }
+            },
+            computed:{
+                total(){
+                    if(this.carts.length > 0){
+                        return Math.round(this.carts.map(data=>data.price).reduce((x,y)=>Number(x)+Number(y)));
+                    }else{
+                        return 0;
+                    }
+                    // return this.price.reduce((x,y)=>Number(x)+Number(y));
+                }
+            }
+
+        }).mount('#app');
+
+        Vue.createApp({
+            data(){
+                return {
+                    q:'',
+                    weathers:''
+                }
+            },
+            methods:{
+                getWeather(){
+                    // const url = 'https://api.openweathermap.org/data/2.5/weather?q=taipei&units=metric&lang=zh_tw&appid=b1ecbccd638b763d489602917ba47cc3';
+                    const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.q}&units=metric&lang=zh_tw&appid=b1ecbccd638b763d489602917ba47cc3`;
+                    fetch(url)
+                    .then(res => res.json())
+                    .then(data=>{
+                        this.weathers = data;
+                        console.log(data);
+                    })
+                },
+                close(){
+                    this.weathers=false;
+                }
+            },
+            computed:{
+                main(){
+                    return this.weathers.main;
+                },
+                w(){
+                    return this.weathers.weather[0];
+                }
+            }
+        }).mount('#weather');
+    </script>
+</body>
+</html>

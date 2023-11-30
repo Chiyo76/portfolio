@@ -1,0 +1,16 @@
+---
+const {desc1} = Astro.props
+const {desc2} = Astro.props
+---
+<header id="header" class="overflow-hidden">
+    <figure class="relative">
+        <img src="/images/header.jpg" alt="" class="aspect-[21/9] h-full w-full opacity-50">
+        <figcaption class="text-slate-800 text-2xl lg:text-8xl font-black absolute w-fit h-fit top-[100px] left-[100px] fig-left">
+            {desc1}
+        </figcaption>
+        <figcaption class="text-slate-800 text-2xl lg:text-6xl font-black absolute w-fit h-fit bottom-[100px] right-[100px] fig-right">
+            {desc2}
+        </figcaption>
+        <slot />
+    </figure>
+</header>

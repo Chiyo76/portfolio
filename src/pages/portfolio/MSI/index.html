@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- cdnjs雲端匯入fontawesome -->
+    <link is:inline rel="stylesheet" href="/css/msi-css/global.css">
+    <link is:inline rel="stylesheet" href="/css/msi-css/style.css">
+    <!-- 順序不能顛倒 global為基礎預設,style做修改 -->
+    <style>
+        /* 返回作品css */
+        .back {
+            background-color: rgb(203 213 225);
+            position: fixed;
+            padding: 8px;
+            bottom: 40px;
+            right: 40px;
+            width: fit-content;
+            height: fit-content;
+            z-index: 50;
+            border-radius: 0.375rem ;
+            transition: 200ms;
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 700;
+        }
+        .back:hover {
+            background-color: rgb(71 85 105);
+            transform: scale(1.25);
+        }
+        .back a {
+            color: black;
+            text-decoration: none;
+        }
+        .back:hover.back a{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="back">
+        <a href="/portfolio">
+            返回作品集
+        </a>
+    </div>
+    <!-- 主選單 -->
+    <nav>
+        <div class="container">
+            <a href="/" class="nav-logo home">Ch1yo's website</a>
+            <a href="#" class="nav-logo">msi</a>
+            <div class="nav-menu">
+                <a href="#" class="nav-link">線上商城</a>
+                <a href="#" class="nav-link">產品資訊</a>
+                <a href="#" class="nav-link">AIoT方案</a>
+                <a href="#" class="nav-link">活動促銷</a>
+                <a href="#" class="nav-link">支援服務</a>
+                <a href="#" class="nav-link">網路預約</a>
+                <a href="#" class="nav-link">售後服務</a>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link"><i class="fa-solid fa-user"></i></a>
+                <a href="#" class="nav-link"><i class="fa-solid fa-location-dot"></i></a>
+                <a href="#" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <!-- 到fontawesome裡找icon -->
+            </div>
+        </div>
+    </nav>
+
+    <header class="header">
+        <img src="https://picsum.photos/id/76/1600/900" alt="">
+        <div class="h-text">
+            此網頁是用傳統外部css做的，僅供練習使用，如有冒犯敬請見諒
+        </div>
+    </header>
+    <!-- 軟體連結 -->
+    <section id="soft">
+        <div class="soft-container">
+            <div class="soft-item">
+                <div><i class="fa-solid fa-house fa-2x"></i></div>
+                <!-- fa-nx可以設定大小 -->
+                <div><a href="#">MSI center</a></div>
+            </div>
+            <div class="soft-item">
+                <div><i class="fa-solid fa-plane fa-2x"></i></div>
+                <div><a href="#">Afterburner</a></div>
+            </div>
+            <div class="soft-item">
+                <div><i class="fa-solid fa-gamepad fa-2x"></i></div>
+                <div><a href="#">MSI App Player</a></div>
+            </div>
+            <div class="soft-item">
+                <div><i class="fa-solid fa-hippo fa-2x"></i></div>
+                <div><a href="#">MyMSI App</a></div>
+            </div>
+        </div>
+    </section>
+    <!-- 最新產品 -->
+    <section id="products">
+        <h2>最新產品</h2>
+        <div class="container">
+            <div class="product-item">
+                <img src="https://picsum.photos/id/98/800/400" alt="">
+                <h3>title</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://picsum.photos/id/98/800/400" alt="">
+                <h3>title</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://picsum.photos/id/98/800/400" alt="">
+                <h3>title</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://picsum.photos/id/98/800/400" alt="">
+                <h3>title</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://picsum.photos/id/98/800/400" alt="">
+                <h3>title</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://picsum.photos/id/98/800/400" alt="">
+                <h3>title</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- AIOT -->
+    <SECTION id="aiot">
+        <H2>完整 AIoT 方案為企業提供全面服務</H2>
+        <div class="container">
+            <div class="aiot-side">
+                <div class="aiot-item">
+                    <div class="aiot-cover">
+                        <!-- 有動畫效果的圖片都要包div -->
+                        <img src="https://picsum.photos/id/23/800/600" alt="">
+                    </div>
+                    <div class="aiot-text">
+                        <h3>充電裝</h3>
+                        <p>宣佈舉辦。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="aiot-main">
+                <div class="aiot-main-col">
+                    <div class="aiot-item">
+                        <div class="aiot-cover">
+                            <img src="https://picsum.photos/id/23/800/600" alt="">
+                        </div>
+                        <div class="aiot-text">
+                            <h3>充電裝</h3>
+                            <p>宣佈舉辦。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="aiot-main-col">
+                    <div class="aiot-item">
+                        <div class="aiot-cover">
+                            <img src="https://picsum.photos/id/23/800/600" alt="">
+                        </div>
+                        <div class="aiot-text">
+                            <h3>充電裝</h3>
+                            <p>宣佈舉辦。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="aiot-main-col">
+                    <div class="aiot-item">
+                        <div class="aiot-cover">
+                            <img src="https://picsum.photos/id/23/800/600" alt="">
+                        </div>
+                        <div class="aiot-text">
+                            <h3>充電裝</h3>
+                            <p>宣佈舉辦。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="aiot-main-col">
+                    <div class="aiot-item">
+                        <div class="aiot-cover">
+                            <img src="https://picsum.photos/id/23/800/600" alt="">
+                        </div>
+                        <div class="aiot-text">
+                            <h3>充電裝</h3>
+                            <p>宣佈舉辦。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="aiot-main-col">
+                    <div class="aiot-item">
+                        <div class="aiot-cover">
+                            <img src="https://picsum.photos/id/23/800/600" alt="">
+                        </div>
+                        <div class="aiot-text">
+                            <h3>充電裝</h3>
+                            <p>宣佈舉辦。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="aiot-main-col">
+                    <div class="aiot-item">
+                        <div class="aiot-cover">
+                            <img src="https://picsum.photos/id/23/800/600" alt="">
+                        </div>
+                        <div class="aiot-text">
+                            <h3>充電裝</h3>
+                            <p>宣佈舉辦。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </SECTION>
+    
+    <!-- info -->
+    <section id="info">
+        <div class="container">
+            <div class="info-top-item">
+                <a href="#">
+                    <i><i class="fa-solid fa-ticket fa-3x"></i></i>
+                    <span>產品註冊</span>
+                </a>
+            </div>
+            <div class="info-top-item">
+                <a href="#">
+                    <i><i class="fa-solid fa-ticket fa-3x"></i></i>
+                    <span>產品註冊</span>
+                </a>
+            </div>
+            <div class="info-top-item">
+                <a href="#">
+                    <i><i class="fa-solid fa-ticket fa-3x"></i></i>
+                    <span>產品註冊</span>
+                </a>
+            </div>
+            <div class="info-top-item">
+                <a href="#">
+                    <i><i class="fa-solid fa-ticket fa-3x"></i></i>
+                    <span>產品註冊</span>
+                </a>
+            </div>
+            <div class="info-bottom-item">
+                <div class="info-card">
+                    <img src="https://picsum.photos/id/12/800/400" alt="">
+                    <div class="info-text">
+                        <h3>會員獎勵計畫</h3>
+                        <p>近日感覺獨特逐步，沒有什麼長。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="info-bottom-item">
+                <div class="info-card">
+                    <img src="https://picsum.photos/id/12/800/400" alt="">
+                    <div class="info-text">
+                        <h3>會員獎勵計畫</h3>
+                        <p>近日感覺獨特逐步，沒有什麼長。</p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-item">
+                <h3>社群</h3>
+                <ul>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-item">
+                <h3>社群</h3>
+                <ul>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-item">
+                <h3>社群</h3>
+                <ul>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-item">
+                <h3>社群</h3>
+                <ul>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-item">
+                <h3>社群</h3>
+                <ul>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                    <li><a href="#">會員中心</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- copyright -->
+    <footer>
+        <div class="container">
+            <div class="copyright-item">
+                Copyright © 2023 版權為微星科技所有。
+            </div>
+            <div class="copyright-item">
+                <a href="#">隱私權保護政策</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#">
+        <div class="tri"></div>
+    </a>
+</body>
+</html>

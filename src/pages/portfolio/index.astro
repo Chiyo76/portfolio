@@ -1,0 +1,320 @@
+---
+import Header from "../../components/Header.astro";
+import Master from "../../layouts/Master.astro";
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <Master>
+            <Header desc1="這裡是作品集" desc2="Here Is My Portfolio">
+                <figcaption
+                    class="keep p-2 md:p-5 absolute inset-0 top-[150px] left-4 w-fit h-fit md:m-auto md:-translate-y-full bg-slate-600 rounded-md hover:scale-125 hover:bg-slate-300 duration-200 z-[100]"
+                >
+                    <a
+                        href="#layouts"
+                        class="font-bold text-3xl lg:text-6xl text-white hover:text-black"
+                    >
+                        繼續
+                    </a>
+                </figcaption>
+            </Header>
+            <section
+                class="relative overflow-hidden"
+                class="max-w-full min-h-full overflow-hidden"
+                id="portfolio"
+            >
+                <!-- 兩側箱箱 -->
+                <div class="box w-[8vw] h-[8vw] absolute bg-green-200"></div>
+                <div class="box1 w-[8vw] h-[8vw] absolute right-0 bg-sky-200">
+                </div>
+                <!-- 作品集 -->
+                <div
+                    class="py-40 bg-slate-200 w-3/4 container mx-auto flex flex-wrap"
+                >
+                    <div
+                        class="w-full lg:w-10/12 flex flex-wrap lg:flex-nowrap justify-center items-center mx-auto space-y-5 lg:space-y-0 lg:space-x-10"
+                    >
+                        <!-- card-1 -->
+                        <div
+                            class="w-full lg:w-1/3 p-5 bg-slate-500 bg-gradient-to-b from-slate-50 rounded-xl group hover:scale-110 hover:bg-slate-700 duration-200"
+                            id="layouts"
+                        >
+                            <div class="w-full p-8">
+                                <div
+                                    class="rounded-full overflow-hidden aspect-[1/1]"
+                                >
+                                    <img
+                                        src="/images/portfolio/版型預覽.png"
+                                        alt=""
+                                        class="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-col lg:w-2/3 w-full sm:pl-8 text-center sm:text-left space-y-2 py-5"
+                            >
+                                <div
+                                    class="text-3xl font-bold text-white group-hover:text-blue-200 duration-200 relative flex flex-col"
+                                >
+                                    <a
+                                        href="#layouts"
+                                        class="hover:scale-110 hover:text-cyan-200"
+                                    >
+                                        各式版型
+                                    </a>
+                                    <p
+                                        class="hidden group-hover:block text-lg font-bold text-stone-200 duration-200"
+                                    >
+                                        使用各種框架製作版型
+                                    </p>
+                                </div>
+
+                                <div class="text-xl mb-4">
+                                    <ul
+                                        class="list-disc list-inside space-y-2 text-stone-300"
+                                    >
+                                        <li
+                                            class="hover:text-white hover:font-bold duration-200"
+                                        >
+                                            <a href="/portfolio/Tailwind"
+                                                >Tailwind</a
+                                            >
+                                        </li>
+                                        <li
+                                            class="hover:text-white hover:font-bold duration-200"
+                                        >
+                                            <a href="/portfolio/Bootstrap"
+                                                >Bootstrap</a
+                                            >
+                                        </li>
+                                        <li
+                                            class="hover:text-white hover:font-bold duration-200"
+                                        >
+                                            <a href="/portfolio/MSI"
+                                                >仿微星官網</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- card-2 -->
+                        <div
+                            class="relative w-full lg:w-1/3 p-5 bg-slate-500 bg-gradient-to-b from-slate-50 rounded-xl group hover:scale-110 hover:bg-slate-700 duration-200"
+                            id="layouts"
+                        >
+                            <div class="w-full p-8">
+                                <div
+                                    class="rounded-full overflow-hidden aspect-[1/1]"
+                                >
+                                    <img
+                                        src="/images/portfolio/vueCart.png"
+                                        alt=""
+                                        class="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-col w-full sm:pl-8 text-center sm:text-left space-y-2 py-5"
+                            >
+                                <div
+                                    class="text-3xl font-bold text-white group-hover:text-blue-200 duration-200 relative flex flex-col"
+                                >
+                                    <a
+                                        href="/portfolio/Vue"
+                                        class="hover:scale-110 hover:text-cyan-200"
+                                    >
+                                        Vue購物網站
+                                    </a>
+                                    <p
+                                        class="hidden group-hover:block text-lg font-bold text-stone-200 duration-200"
+                                    >
+                                        使用Vue.js編寫
+                                    </p>
+                                </div>
+                                <div class="text-xl mb-4 w-full">
+                                    <ul
+                                        class="list-disc list-inside space-y-2 text-stone-300"
+                                    >
+                                        <li
+                                            class="hover:text-white hover:font-bold duration-200"
+                                        >
+                                            使用fakestore api
+                                        </li>
+                                        <li
+                                            class="hover:text-white hover:font-bold duration-200"
+                                        >
+                                            前端簡易購物車
+                                        </li>
+                                        <li
+                                            class="hover:text-white hover:font-bold duration-200"
+                                        >
+                                            簡易天氣查詢
+                                        </li>
+                                    </ul>
+                                </div>
+                                <a href="/portfolio/Vue"
+                                    class="bg-cyan-100 rounded-xl hover:bg-slate-400 font-bold ml-auto -translate-x-2 hover:text-white hover:font-bold duration-200 px-4 py-2 inline-block"
+                                >
+                                    前往
+                                </a>
+                                
+                            </div>
+                        </div>
+                        <!-- card-3 -->
+                        <div
+                            class="relative w-full lg:w-1/3 p-5 bg-slate-500 bg-gradient-to-b from-slate-50 rounded-xl group hover:scale-110 hover:bg-slate-700 duration-200"
+                            id="layouts"
+                        >
+                            <div class="w-full p-8">
+                                <div
+                                    class="rounded-full overflow-hidden aspect-[1/1]"
+                                >
+                                    <img
+                                        src="/images/portfolio/vueCart.png"
+                                        alt=""
+                                        class="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-col w-full sm:pl-8 text-center sm:text-left space-y-2 py-5"
+                            >
+                                <div
+                                    class="text-3xl font-bold text-white group-hover:text-blue-200 duration-200 relative flex flex-col"
+                                >
+                                    <a
+                                        href="/portfolio/ch1yoCoffee"
+                                        class="hover:scale-110 hover:text-cyan-200"
+                                    >
+                                        形象網站
+                                    </a>
+                                    <p
+                                        class="hidden group-hover:block text-lg font-bold text-stone-200 duration-200"
+                                    >
+                                        模擬個人品牌
+                                    </p>
+                                </div>
+                                <div class="text-xl mb-4 w-full">
+                                    <ul
+                                        class="list-disc list-inside space-y-2 text-stone-300"
+                                    >
+                                        <li
+                                            class="hover:text-white hover:font-bold duration-200"
+                                        >
+                                            使用Tailwind CSS編寫
+                                        </li>
+                                        <li
+                                            class="hover:text-white hover:font-bold duration-200"
+                                        >
+                                            大量aos動畫效果
+                                        </li>
+                                        <li
+                                            class="hover:text-white hover:font-bold duration-200"
+                                        >
+                                            swiper轉盤
+                                        </li>
+                                    </ul>
+                                </div>
+                                <a href="/portfolio/ch1yoCoffee"
+                                    class="bg-cyan-100 rounded-xl hover:bg-slate-400 font-bold ml-auto -translate-x-2 hover:text-white hover:font-bold duration-200 px-4 py-2 inline-block"
+                                >
+                                    前往
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </Master>
+
+        <script>
+            // 網頁加載完成再顯示
+            // document.onreadystatechange =function(){
+            //     if(document.readyState == "complete"){
+            //         document.body.style.display = "block";
+            //     }else{
+            //         document.body.style.display ="none";
+            //     };
+            // };
+            import { gsap } from "gsap";
+
+            import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from("Header .fig-left", {
+                x: -300,
+                opacity: 0,
+                duration: 1,
+            });
+            gsap.from("Header .fig-right", {
+                x: 300,
+                opacity: 0,
+                duration: 1,
+            });
+            gsap.from("Header .keep", {
+                scale: 0,
+                opacity: 0,
+                duration: 1,
+                rotate: 720,
+            });
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: "Header",
+                    // markers: true,
+                    start: "0% top",
+                    end: "+=50%",
+                    scrub: 1,
+                },
+            })
+                .to("Header .fig-left", { x: -300, opacity: 0 }, 0)
+                .to("Header .fig-right", { x: 300, opacity: 0 }, 0);
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: "Header",
+                    // markers: true,
+                    start: "0% top",
+                    end: "+=30%",
+                    scrub: 1,
+                },
+            }).to(
+                "Header .keep",
+                {
+                    scale: 0,
+                    opacity: 0,
+                    duration: 1,
+                    rotate: 720,
+                },
+                0,
+            );
+            // 兩側箱子
+            // let ph = document.getElementById('portfolio')
+            gsap.to(".box", {
+                y: () => innerHeight / 1.5,
+                rotate: 720,
+                delay: 1,
+                ease: "sine.inOut(1.7)",
+                repeat: -1,
+                yoyo: true,
+                duration: 3,
+            });
+            gsap.to(".box1", {
+                y: () => innerHeight / 1.5,
+                rotate: -720,
+                delay: 1,
+                ease: "sine.inOut(1.7)",
+                repeat: -1,
+                yoyo: true,
+                duration: 3,
+            });
+        </script>
+    </body>
+</html>

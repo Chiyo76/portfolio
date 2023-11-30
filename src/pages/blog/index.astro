@@ -1,0 +1,20 @@
+---
+import Master from '../../layouts/Master.astro'
+import Post from '../../components/Post.astro'
+const posts = await Astro.glob('./*.md') 
+
+---
+<Master>
+    <h2 class="text-4xl p-5">
+        部落格練習，全部都是md檔
+    </h2>
+    {
+        posts.map(
+            post=><Post 
+            title={post.frontmatter.title} 
+            pubDate={post.frontmatter.pubDate}
+            url={post.url}
+            />
+        )
+    }
+</Master>

@@ -1,0 +1,82 @@
+---
+import Master from "../layouts/Master.astro";
+import Header from "../components/Header.astro";
+---
+
+<Master>
+    <Header desc1="歡迎來到頎佑的個人網頁!!"
+            desc2="welcome to Ch1yo's personal website"/>
+    <div class="relative">
+        <h2 class="text-4xl font-black py-10 text-center">我的履歷</h2>
+        <a href="/履歷.pdf" target="_blank" class="text-2xl inline-block absolute left-2 bottom-2 font-bold text-slate-700 hover:text-slate-300 duration-200">履歷連結</a>
+    </div>
+    <div class="flex resume">
+        <div
+            class="rounded-xl overflow-hidden h-[800px] w-1/2 relative z-50 bg-white"
+        >
+            <a href="/履歷.pdf">
+                <object
+                    data="/履歷.pdf"
+                    type="application/pdf"
+                    width="100%"
+                    height="100%"
+                    class="h-full"></object>
+            </a>
+        </div>
+        <div class="w-1/2 relative overflow-hidden">
+            <div class="text-xl p-8 space-y-5 lg:text-4xl">
+                <h2>您好！謝謝您抽空觀賞我的網站:)</h2>
+                <p>此網站是使用astro框架架設</p>
+                <p>作品有使用到以下框架、套件：</p>
+                <ul class="list-disc p-5 space-y-5 list-inside">
+                    <li>Tailwindcss</li>
+                    <li>Bootstrap</li>
+                    <li>Vue.js</li>
+                    <li>gsap動畫效果</li>
+                    <li>AOS動畫效果</li>
+                </ul>
+            </div>
+
+            <a href="/portfolio" class="group">
+                <div class="absolute bottom-[200px] right-40 w-fit h-fit bg-slate-300 z-50 rounded-md hover:scale-125 hover:bg-slate-600 hover:text-white p-[1vw] duration-200 font-bold">前往作品</div>
+                <div class="opacity-0 group-hover:opacity-100 duration-200 text-xl absolute bottom-36 z-50 md:bottom-[280px] right-20 italic">上方主選單也可以選擇哦!</div>
+            </a>
+            <div
+                class="w-[20vw] h-[20vh] run absolute left-[-200px] bottom-0"
+            >
+                <img
+                    src="/images/running.gif"
+                    alt=""
+                    class="w-full h-full object-cover"
+                />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        import { gsap } from "gsap";
+    
+        import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from("Header .fig-left", { x: -300, opacity: 0, duration: 1 });
+        gsap.from("Header .fig-right", { x: 300, opacity: 0, duration: 1 });
+        gsap.to(".run", { x: "60vw", duration: 4, repeat: -1 });
+
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: "Header",
+                // markers: true,
+                start: "0% top",
+                end: "+=50%",
+                scrub: 1,
+            },
+        })
+        .to("Header .fig-left", { x: -300, opacity: 0 }, 0)
+        .to("Header .fig-right", { x: 300, opacity: 0 }, 0)
+        .from(".resume", { opacity: 0.2 }, 0);
+     
+   
+    </script>
+</Master>

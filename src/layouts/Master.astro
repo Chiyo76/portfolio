@@ -1,0 +1,48 @@
+---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+// astro內建功能 可以淡入slot區域
+const { pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ch1yo's Site {pageTitle && "- " + pageTitle}</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        />
+        <ViewTransitions />
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+        </style>
+        <script>
+            // 網頁加載完成再顯示
+            document.onreadystatechange = function () {
+                if (document.readyState == "complete") {
+                    document.body.style.display = "block";
+                } else {
+                    document.body.style.display = "none";
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <Nav logo="Ch1yo's website" />
+        <slot />
+
+        <div
+            class="p-2 fixed bottom-10 right-10 w-fit h-fit bg-slate-300 z-50 rounded-md hover:scale-125 hover:bg-slate-600 hover:text-white duration-200"
+        >
+            <a href="#nav" class="font-bold text-2xl goTop"> 回到頂端</a>
+        </div>
+        <!-- 要放 <slot /> 就可以套用樣板自定義內容 -->
+        <Footer />
+    </body>
+</html>
