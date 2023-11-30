@@ -3,7 +3,6 @@ import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
 // astro內建功能 可以淡入slot區域
-const { pageTitle } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,7 +10,7 @@ const { pageTitle } = Astro.props;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Ch1yo's Site {pageTitle && "- " + pageTitle}</title>
+        <title>Ch1yo's Site</title>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
